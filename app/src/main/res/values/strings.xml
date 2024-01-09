@@ -2,4 +2,7 @@
     <string name="app_name">My Application</string>
     <string name="bouton_vrai">Bouton Vrai</string>
     <string name="bouton_faux">Bouton Faux</string>
+    <string name="text" />
+    <string name="question_precedente">Question précédente</string>
+    <string name="question_suivante">Question suivante</string>
 </resources>
