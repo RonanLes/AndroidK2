@@ -11,9 +11,10 @@
 
 
     <TextView
+        android:id="@+id/tv_question"
+        tools:text="@string/question_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
         android:padding="42dp"
         />
 
@@ -47,8 +48,8 @@
             android:id="@+id/btnNext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/question_suivante" />
-
+            android:text="@string/question_suivante"
+            android:drawableEnd="@drawable/baseline_arrow_right_alt_24" />
     </LinearLayout>
 
 </LinearLayout>
