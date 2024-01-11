@@ -12,4 +12,6 @@
     <string name="correct_toast">Réponse Correct</string>
     <string name="incorrect_toast">Réponse Incorrect</string>
     <string name="question_text" />
+    <string name="txt_attention" >tu as utilisé une aide</string>
+    <string name="btn_affiche_aide" >Aide</string>
 </resources>

@@ -46,6 +46,12 @@
         android:gravity="center">
 
         <Button
+            android:id="@+id/btnafficheAide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:text="@string/btn_affiche_aide"/>
+        <Button
             android:id="@+id/btnNext"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
