@@ -1,14 +1,16 @@
 package com.example.myapplication
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.example.myapplication.databinding.ActivityMainBinding
 
-
+const val EXTRA_REPONSE_AFFICHE= "com.example.myapplication.reponse_affiche"
 private const val TAG = "MainActivity"
 class MainActivity : AppCompatActivity() {
 
@@ -35,7 +37,27 @@ class MainActivity : AppCompatActivity() {
             quizViewModel.QuestionSuivante()
             majQuestion()
         }
+        binding.btnafficheAide.setOnClickListener {vue:View ->
+        val reponseCorrecte = quizViewModel.repReponseActuelle
+        val intention = AideActivity.newIntent(this@MainActivity, reponseCorrecte)
+        //startActivity(intention)
+            demarreAide.launch(intent)
+        }
 
+    }
+    private val demarreAide = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult())
+    { result ->
+        if (result.resultCode == RESULT_OK){
+            val reponseAffichee = result.data?.getBooleanExtra(EXTRA_REPONSE_AFFICHE, false) ?: false
+            quizViewModel.estAide = reponseAffichee
+        }
+    }
+    private fun setResultReponseAffichee(reponseAffichee:Boolean){
+        val intention = Intent().apply{
+            putExtra(EXTRA_REPONSE_AFFICHE, reponseAffichee)
+        }
+        setResult(RESULT_OK, intention)
     }
     private fun majQuestion(){
         val questionTextResId = quizViewModel.txtQuestionActuelle
@@ -43,10 +65,15 @@ class MainActivity : AppCompatActivity() {
     }
     private fun checkAnswer(userAnswer:Boolean){
         val correctAnswer = quizViewModel.repReponseActuelle
-        val messageResId = if (userAnswer == correctAnswer){
+       /* val messageResId = if (userAnswer == correctAnswer){
             R.string.correct_toast
         }else{
             R.string.incorrect_toast
+        }*/
+        val messageResId= when{
+            quizViewModel.estAide -> R.string.toast_Aide
+            userAnswer == correctAnswer -> R.string.correct_toast
+            else -> R.string.incorrect_toast
         }
         Toast.makeText(this, messageResId, Toast.LENGTH_SHORT).show()
     }

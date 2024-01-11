@@ -14,4 +14,5 @@
     <string name="question_text" />
     <string name="txt_attention" >tu as utilisé une aide</string>
     <string name="btn_affiche_aide" >Aide</string>
+    <string name="toast_Aide" >Tu as été Aidé </string>
 </resources>
