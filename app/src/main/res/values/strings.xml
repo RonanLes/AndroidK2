@@ -3,8 +3,6 @@
     <string name="app_name">My Application</string>
     <string name="bouton_vrai">Bouton Vrai</string>
     <string name="bouton_faux">Bouton Faux</string>
-    <string name="text" />
-    <string name="question_precedente">Question précédente</string>
     <string name="question_suivante">Question suivante</string>
     <string name="question_1">L\'océan Pacifique est plus grand que l\'océan Atlantique.</string>
     <string name="question_2">Le canal de Suez relie la Mer Rouge et l\'océan Indien.</string>
